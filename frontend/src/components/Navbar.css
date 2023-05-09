@@ -1,0 +1,13 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+
+header {
+  background-color: #4444AA;
+  margin: 0 auto;
+  display: flex;
+  padding: 10px 40px;
+  align-items: center;
+  justify-content: space-between;
+}
