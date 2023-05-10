@@ -11,10 +11,10 @@ app.use((req, res, next) => {
   next()
 })
 
-//routes
+//routes 
 const postRoutes = require('./routes/post')
 
-app.use('/api/post', postRoutes)
+app.use('/api/posts', postRoutes)
 
 //DB connection
 mongoose.connect(process.env.MONGO_URI)
