@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PostCard from './PostCard'
-// import PostForm from './PostForm';
+import PostForm from './PostForm';
 import { getPosts } from '../../api/postSlice'
 
 function PostsList() {
@@ -18,7 +18,7 @@ function PostsList() {
 
   return (
     <div>
-      {/* <PostForm /> */}
+      <PostForm />
       <h1>Posts List</h1>
       {posts.map(post => (
         <PostCard key={post._id} title={post.title} body={post.body} />
