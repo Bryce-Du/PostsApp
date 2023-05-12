@@ -21,7 +21,7 @@ function PostsList() {
       <PostForm />
       <h1>Posts List</h1>
       {posts.map(post => (
-        <PostCard key={post._id} title={post.title} body={post.body} />
+        <PostCard key={post._id} id={post._id} title={post.title} body={post.body} />
       ))}
     </div>
 

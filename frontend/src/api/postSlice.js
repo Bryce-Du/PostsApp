@@ -31,6 +31,21 @@ export const addPost = createAsyncThunk('posts/addPost', async (formData) => {
   return data
 })
 
+export const deletePost = createAsyncThunk('posts/deletePost', async (id) => {
+  const response = await fetch(`http://localhost:4000/api/posts/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  const data = await response.json()
+
+  if (!response.ok) {
+    throw new Error(data.message)
+  }
+  return id
+})
+
 const postSlice = createSlice({
   name: 'post',
   initialState,
@@ -59,6 +74,10 @@ const postSlice = createSlice({
         state.status = 'failed';
         state.error = action.error.message;
       })
+      .addCase(deletePost.fulfilled, (state, action) => {
+        const deletedPostId = action.payload;
+        state.posts = state.posts.filter((post) => post._id !== deletedPostId);
+      });
   },
 })
 
